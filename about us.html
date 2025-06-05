@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Example</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Georgia:400,700&display=swap" rel="stylesheet">
+    <style>
+        header {
+            background: linear-gradient(90deg, #bbd881 60%, #6a994e 100%);
+            color: #c9e7df;
+            padding: 2rem 0;
+            text-align: center;
+            animation: fadeInDown 1.2s;
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+            box-shadow: 0 4px 24px #bbd88133;
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.7rem;
+            font-weight: 900;
+            margin-bottom: 0.3em;
+            background: linear-gradient(90deg, #6a994e, #222, #a7c957, #222, #6a994e);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 3s linear infinite;
+            letter-spacing: 2px;
+            filter: drop-shadow(0 2px 6px #a7c95755);
+        }
+        header p {
+            font-family: 'Georgia', serif;
+            font-size: 1.2rem;
+            color: #333;
+            opacity: 0.85;
+            margin: 0;
+        }
+        body {
+            background: #f4f4f4 !important;
+        }
+        .container {
+            background: #f4f4f4;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px #bbd88122;
+        }
+        .clothing-item {
+            background: #f6ffe5;
+            border: 1px solid #bbd88155;
+            box-shadow: 0 2px 8px #bbd88122;
+        }
+        .clothing-item img {
+            box-shadow: 0 2px 8px #a7c95733;
+        }
+        .clothing-title {
+            color: #6a994e;
+        }
+        .clothing-desc {
+            color: #222;
+        }
+    </style>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f6ffe5;
+            color: #222;
+        }
+        .hero-bg {
+            min-height: 100vh;
+            background: linear-gradient(120deg, #e9f5c6cc 60%, #bbd881cc 100%), 
+                url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+            /* Replace the URL above with your preferred image */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #bbd881;
+            padding: 10px 20px;
+        }
+        .navbar a {
+            color: #222;
+            text-decoration: none;
+            padding: 8px 15px;
+            position: relative;
+            transition: color 0.3s;
+            background: none;
+            overflow: hidden;
+        }
+        .navbar a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #6a994e, #222, #a7c957);
+            transition: width 0.4s cubic-bezier(.77,0,.18,1);
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+        .navbar a:hover {
+            color: #6a994e;
+            background: none;
+        }
+        .navbar a:hover::after {
+            width: 100%;
+        }
+        .navbar .logo {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #6a994e, #222, #a7c957, #222, #6a994e);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 2.5s linear infinite, logoPop 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+            filter: drop-shadow(0 2px 6px #a7c95755);
+        }
+        .navbar .menu {
+            display: flex;
+            gap: 10px;
+        }
+        .navbar a.active,
+        .navbar a:focus {
+            color: #fff;
+            background: linear-gradient(90deg, #6a994e 60%, #a7c957 100%);
+            border-radius: 4px;
+            box-shadow: 0 2px 8px #a7c95733;
+        }
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        @keyframes logoPop {
+            0% { opacity: 0; transform: scale(0.8) translateY(-20px);}
+            60% { opacity: 1; transform: scale(1.1) translateY(5px);}
+            100% { opacity: 1; transform: scale(1) translateY(0);}
+        }
+        .main-content {
+            margin: 40px auto;
+            max-width: 700px;
+            padding: 32px 24px;
+            background: #e9f5c6cc;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px #bbd88122;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .main-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(90deg, #6a994e, #222, #a7c957, #222, #6a994e);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 3s linear infinite;
+            letter-spacing: 2px;
+            filter: drop-shadow(0 2px 6px #a7c95755);
+        }
+        .main-content p {
+            font-size: 1.2rem;
+            color: #222;
+            opacity: 0.85;
+        }
+        @keyframes heroFadeIn {
+            0% { opacity: 0; transform: translateY(40px) scale(0.98);}
+            60% { opacity: 1; transform: translateY(-8px) scale(1.04);}
+            100% { opacity: 1; transform: translateY(0) scale(1);}
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-bg">
+        <div class="navbar">
+            <a href="index.html" class="logo">Genzzz</a>
+            <div class="menu">
+                <a href="index.html">Home</a>
+                <a href="about us.html">About</a>
+                <a href="shopiee.html">Shop</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us - Genzzz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            color: #222;
+        }
+        header {
+            background: #cde9bb;
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            animation: fadeInDown 1.2s;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px (188, 108, 28, 0.07);
+            padding: 2rem;
+            animation: fadeIn 1.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0;}
+            to { opacity: 1;}
+        }
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 0.5em;
+        }
+        .about-text {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+        .clothes-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .clothing-item {
+            flex: 1 1 250px;
+            background: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.3s;
+            animation: fadeInUp 1.2s;
+        }
+        .clothing-item:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .clothing-item img {
+            width: 180px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            animation: pulse 2s infinite alternate;
+        }
+        @keyframes pulse {
+            from { filter: brightness(1);}
+            to { filter: brightness(1.08);}
+        }
+        .clothing-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .clothing-desc {
+            font-size: 0.97rem;
+            color: #444;
+        }
+        @media (max-width: 700px) {
+            .container { padding: 1rem;}
+            .clothes-gallery { flex-direction: column; gap: 1.5rem;}
+            .clothing-item img { width: 100%; height: 180px;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Us</h1>
+        <p>Genzzz - Timeless Fashion, Modern Craft</p>
+    </header>
+    <div class="container" style="background: #f6ffe5; color: #222;">
+        <div class="about-text" style="color: #222;">
+            <p>
+                <strong>Genzzz</strong> is a forward-thinking clothing brand where tradition meets innovation. We are passionate about blending classic styles with modern, AI-driven design, ensuring every piece is both timeless and contemporary. Our mission is to create garments that offer exceptional comfort, durability, and style for every occasion.
+            </p>
+            <p>
+                Sustainability is at the heart of our brand. We use eco-friendly materials and ethical production methods to minimize our environmental impact. Our design process leverages advanced AI technology, allowing us to perfect every detail and create unique, high-quality clothing that stands out.
+            </p>
+            <p>
+                At Genzzz, we believe fashion should empower individuality. Our collections are thoughtfully crafted to suit diverse tastes and lifestyles, always prioritizing quality and responsible craftsmanship. Join us on our journey to redefine modern fashion with a conscience.
+            </p>
+        </div>
+    </div>
+    <div class="container" style="background: #e9f5c6cc; margin-top: 2rem;">
+        <h2 style="color: #6a994e;">Our Services</h2>
+        <ul style="text-align: left; font-size: 1.08rem; line-height: 1.7; margin-bottom: 2rem;">
+            <li><strong>Custom AI-Driven Designs:</strong> Unique, trendsetting styles tailored to your preferences.</li>
+            <li><strong>Eco-Friendly Materials:</strong> Sustainable fabrics and ethical production processes.</li>
+            <li><strong>Worldwide Shipping:</strong> Fast and reliable delivery to your doorstep.</li>
+            <li><strong>Personalized Styling:</strong> Expert advice to help you find your perfect look.</li>
+            <li><strong>Easy Returns & Support:</strong> Hassle-free returns and responsive customer service.</li>
+        </ul>
+    </div>
+
+    <div class="container" style="background: #fff; margin-top: 2rem;">
+        <h2 style="color: #6a994e;">Customer Reviews</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center;">
+            <div style="flex: 1 1 260px; background: #f6ffe5; border-radius: 10px; box-shadow: 0 2px 8px #bbd88122; padding: 1.2rem;">
+                <p style="font-style: italic;">"Absolutely love the quality and fit! The eco-friendly approach makes me feel good about my purchase."</p>
+                <div style="font-weight: bold; color: #6a994e;">— Priya S.</div>
+            </div>
+            <div style="flex: 1 1 260px; background: #f6ffe5; border-radius: 10px; box-shadow: 0 2px 8px #bbd88122; padding: 1.2rem;">
+                <p style="font-style: italic;">"The AI-designed pieces are so unique. I always get compliments when I wear Genzzz!"</p>
+                <div style="font-weight: bold; color: #6a994e;">— Alex M.</div>
+            </div>
+            <div style="flex: 1 1 260px; background: #f6ffe5; border-radius: 10px; box-shadow: 0 2px 8px #bbd88122; padding: 1.2rem;">
+                <p style="font-style: italic;">"Fast shipping and excellent customer service. Highly recommend to anyone looking for modern fashion."</p>
+                <div style="font-weight: bold; color: #6a994e;">— Fatima R.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

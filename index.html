@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Example</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f6ffe5;
+            color: #222;
+        }
+        .hero-bg {
+            min-height: 100vh;
+            background: linear-gradient(120deg, #e9f5c6cc 60%, #bbd881cc 100%), 
+                url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+            /* Replace the URL above with your preferred image */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #bbd881;
+            padding: 10px 20px;
+        }
+        .navbar a {
+            color: #222;
+            text-decoration: none;
+            padding: 8px 15px;
+            position: relative;
+            transition: color 0.3s;
+            background: none;
+            overflow: hidden;
+        }
+        .navbar a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #6a994e, #222, #a7c957);
+            transition: width 0.4s cubic-bezier(.77,0,.18,1);
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+        .navbar a:hover {
+            color: #6a994e;
+            background: none;
+        }
+        .navbar a:hover::after {
+            width: 100%;
+        }
+        .navbar .logo {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #6a994e, #222, #a7c957, #222, #6a994e);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 2.5s linear infinite, logoPop 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+            filter: drop-shadow(0 2px 6px #a7c95755);
+        }
+        .navbar .menu {
+            display: flex;
+            gap: 10px;
+        }
+        .navbar a.active,
+        .navbar a:focus {
+            color: #fff;
+            background: linear-gradient(90deg, #6a994e 60%, #a7c957 100%);
+            border-radius: 4px;
+            box-shadow: 0 2px 8px #a7c95733;
+        }
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        @keyframes logoPop {
+            0% { opacity: 0; transform: scale(0.8) translateY(-20px);}
+            60% { opacity: 1; transform: scale(1.1) translateY(5px);}
+            100% { opacity: 1; transform: scale(1) translateY(0);}
+        }
+        .main-content {
+            margin: 40px auto;
+            max-width: 700px;
+            padding: 32px 24px;
+            background: #e9f5c6cc;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px #bbd88122;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .main-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(90deg, #6a994e, #222, #a7c957, #222, #6a994e);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 3s linear infinite;
+            letter-spacing: 2px;
+            filter: drop-shadow(0 2px 6px #a7c95755);
+        }
+        .main-content p {
+            font-size: 1.2rem;
+            color: #222;
+            opacity: 0.85;
+        }
+        @keyframes heroFadeIn {
+            0% { opacity: 0; transform: translateY(40px) scale(0.98);}
+            60% { opacity: 1; transform: translateY(-8px) scale(1.04);}
+            100% { opacity: 1; transform: translateY(0) scale(1);}
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-bg">
+        <div class="navbar">
+            <a href="index.html" class="logo">Genzzz</a>
+            <div class="menu">
+                <a href="index.html">Home</a>
+                <a href="about us.html">About</a>
+                <a href="shopiee.html">Shop</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+            .main-content h1 {
+            font-family: 'Pacifico', cursive, Arial, sans-serif;
+            }
+        </style>
+        <div class="main-content">
+            <h1>
+                <span style="display:inline-block; animation: heroFadeIn 1.2s cubic-bezier(.68,-0.55,.27,1.55);">
+                    Elevate Your Style with Genzzz
+                </span>
+            </h1>
+            
+            <p style="font-family: 'Pacifico', cursive, Arial, sans-serif; font-size: 1.2rem; color: #222; opacity: 0.85; animation: heroFadeIn 1.5s 0.3s cubic-bezier(.68,-0.55,.27,1.55) both;">
+                Discover the latest trends in fashion, crafted for the bold and the unique. Step into a world where comfort meets creativity—because you deserve to stand out.
+            </p>
+            <a href="#shop" style="
+                display:inline-block;
+                margin-top:32px;
+                padding:14px 36px;
+                font-size:1.1rem;
+                font-weight:600;
+                color:#fff;
+                background:linear-gradient(90deg,#6a994e 60%,#a7c957 100%);
+                border:none;
+                border-radius:32px;
+                box-shadow:0 4px 16px #a7c95744;
+                text-decoration:none;
+                letter-spacing:1px;
+                transition:transform 0.2s, box-shadow 0.2s;
+                animation: heroFadeIn 2.2s 1s cubic-bezier(.68,-0.55,.27,1.55) both;
+            " onmouseover="this.style.transform='scale(1.07)';this.style.boxShadow='0 8px 24px #a7c95766';"
+            onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 16px #a7c95744';">
+                Shop Now
+            </a>
+        </div>
+</div>
+
+<section style="margin: 40px auto; max-width: 950px; padding: 32px 24px; background: #e9f5c6cc; border-radius: 16px; box-shadow: 0 4px 24px #bbd88122; text-align: center;">
+    <h2 style="
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 24px;
+        background: linear-gradient(90deg, #6a994e, #a7c957);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 1px;
+        font-family: 'Pacifico', cursive, Arial, sans-serif;
+        animation: gradientMove 3s linear infinite;
+    ">
+        
+        Trending Clothes
+    </h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: center;">
+        <!-- Product 1 -->
+        <div style="background: #fff; border-radius: 12px; box-shadow: 0 2px 12px #bbd88122; width: 220px; padding: 18px; text-align: left; display: flex; flex-direction: column; align-items: center;">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=80" alt="Oversized Hoodie" style="width: 180px; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 12px;">
+            <h3 style="font-size: 1.1rem; margin: 0 0 8px 0; color: #222;">Oversized Hoodie</h3>
+            <p style="font-size: 0.97rem; color: #555; margin: 0 0 10px 0;">Ultra-soft, relaxed fit hoodie for all-day comfort and style.</p>
+            <div style="font-weight: bold; color: #6a994e; margin-bottom: 10px;">₹3,299</div>
+            <a href="shopiee.html" style="padding: 8px 20px; background: linear-gradient(90deg,#6a994e 60%,#a7c957 100%); color: #fff; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: background 0.2s;">Shop Now</a>
+        </div>
+        <!-- Product 2 -->
+        <div style="background: #fff; border-radius: 12px; box-shadow: 0 2px 12px #bbd88122; width: 220px; padding: 18px; text-align: left; display: flex; flex-direction: column; align-items: center;">
+            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=300&q=80" alt="Denim Jacket" style="width: 180px; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 12px;">
+            <h3 style="font-size: 1.1rem; margin: 0 0 8px 0; color: #222;">Classic Denim Jacket</h3>
+            <p style="font-size: 0.97rem; color: #555; margin: 0 0 10px 0;">Timeless denim with a modern twist, perfect for layering.</p>
+            <div style="font-weight: bold; color: #6a994e; margin-bottom: 10px;">₹4,499</div>
+            <a href="shopiee.html" style="padding: 8px 20px; background: linear-gradient(90deg,#6a994e 60%,#a7c957 100%); color: #fff; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: background 0.2s;">Shop Now</a>
+        </div>
+        <!-- Product 3 -->
+        <div style="background: #fff; border-radius: 12px; box-shadow: 0 2px 12px #bbd88122; width: 220px; padding: 18px; text-align: left; display: flex; flex-direction: column; align-items: center;">
+            <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=300&q=80" alt="Graphic Tee" style="width: 180px; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 12px;">
+            <h3 style="font-size: 1.1rem; margin: 0 0 8px 0; color: #222;">Graphic Tee</h3>
+            <p style="font-size: 0.97rem; color: #555; margin: 0 0 10px 0;">Bold prints on premium cotton for a statement look.</p>
+            <div style="font-weight: bold; color: #6a994e; margin-bottom: 10px;">₹1,799</div>
+            <a href="shopiee.html" style="padding: 8px 20px; background: linear-gradient(90deg,#6a994e 60%,#a7c957 100%); color: #fff; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: background 0.2s;">Shop Now</a>
+        </div>
+        <!-- Product 4 (Changed Image) -->
+        <div style="background: #fff; border-radius: 12px; box-shadow: 0 2px 12px #bbd88122; width: 220px; padding: 18px; text-align: left; display: flex; flex-direction: column; align-items: center;">
+            <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=300&q=80" alt="Flannel Shirt" style="width: 180px; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 12px;">
+            <h3 style="font-size: 1.1rem; margin: 0 0 8px 0; color: #222;">Flannel Shirt</h3>
+            <p style="font-size: 0.97rem; color: #555; margin: 0 0 10px 0;">Soft flannel shirt with classic checks for a cozy, stylish look.</p>
+            <div style="font-weight: bold; color: #6a994e; margin-bottom: 10px;">₹2,499</div>
+            <a href="shopiee.html" style="padding: 8px 20px; background: linear-gradient(90deg,#6a994e 60%,#a7c957 100%); color: #fff; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: background 0.2s;">Shop Now</a>
+        </div>
+    </div>
+</section>
